@@ -103,3 +103,55 @@ h1{
     }
    }
 }
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-item {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .nav a {
+        font-size: 1rem;
+    }
+   #filterPrice{
+   margin-top: 1rem;
+   }
+   #sortOptions{
+    top: 5px;
+   }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .cart-item {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px;
+    }
+     #filterPrice{
+   margin-top: 1rem;
+   }
+   #sortOptions{
+    top: 5px;
+   }
+}
