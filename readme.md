@@ -1,7 +1,12 @@
-1.  Data Structure
-Cart: An array of objects containing product details.
-Product Object Structure:
-Product {
+  1.  Data Structure
+
+  2.  
+  Cart: An array of objects containing product details.
+
+  Product Object Structure:
+
+
+ Product {
     id: Integer,
     name: String,
     image: String,
@@ -11,7 +16,7 @@ Product {
 
 
 
- 2.  Shopping Cart Operations 
+ 4.  Shopping Cart Operations 
 Function AddToCart(product)
     IF cart contains product.id THEN
         Increment product.quantity in cart
@@ -27,7 +32,7 @@ END Function
 
 
  
-3. Function RemoveFromCart(productId)
+5. Function RemoveFromCart(productId)
     FOR each item in cart
         IF item.id == productId THEN
             Remove item from cart
@@ -37,7 +42,7 @@ END Function
     RETURN cart
 END Function
  
- 4. Function CalculateTotalPrice()
+ 6. Function CalculateTotalPrice()
     totalPrice = 0
     FOR each item in cart
         totalPrice = totalPrice + (item.price * item.quantity)
@@ -45,7 +50,7 @@ END Function
     RETURN totalPrice
 END Function
 
-5. Function CalculateAveragePrice()
+7. Function CalculateAveragePrice()
     totalPrice = CalculateTotalPrice()
     totalItems = 0
     FOR each item in cart
@@ -58,7 +63,7 @@ END Function
     ENDIF
 END Function
 
-6. Function FilterProducts(maxPrice)
+8. Function FilterProducts(maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price <= maxPrice THEN
@@ -68,7 +73,7 @@ END Function
     RETURN filteredProducts
 END Function
  
-7. Function FilterProductsByRange(minPrice, maxPrice)
+9. Function FilterProductsByRange(minPrice, maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price >= minPrice AND item.price <= maxPrice THEN
@@ -78,7 +83,7 @@ END Function
     RETURN filteredProducts
 END Function
 
-8. Function SortCart(order)
+10. Function SortCart(order)
     IF order == "asc" THEN
         Sort cart by price in ascending order
     ELSE IF order == "desc" THEN
@@ -87,13 +92,13 @@ END Function
     RETURN cart
 END Function
 
-9. Function ClearCart()
+11. Function ClearCart()
     cart = []
     Display "Your cart is empty"
     RETURN cart
 END Function
 
-10. json 
+12. json 
   [
   {
     "id": 1,
