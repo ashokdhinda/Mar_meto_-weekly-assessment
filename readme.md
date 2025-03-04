@@ -1,7 +1,9 @@
-  ##1   Data Structure
+  1.   Data Structure
 
   2. Cart: An array of objects containing product details.
+
   Product Object Structure:
+
 
  Product {
     id: Integer,
@@ -39,37 +41,55 @@ END Function
 
  
 6. Function RemoveFromCart(productId)
+   
     FOR each item in cart
+   
         IF item.id == productId THEN
             Remove item from cart
             BREAK
         ENDIF
+   
     ENDFOR
+   
     RETURN cart
+   
 END Function
  
- 7. Function CalculateTotalPrice()
+ 8. Function CalculateTotalPrice()
+
     totalPrice = 0
+    
     FOR each item in cart
+    
         totalPrice = totalPrice + (item.price * item.quantity)
     ENDFOR
+    
     RETURN totalPrice
+    
 END Function
 
-8. Function CalculateAveragePrice()
+10. Function CalculateAveragePrice()
+
     totalPrice = CalculateTotalPrice()
+    
     totalItems = 0
+    
     FOR each item in cart
+    
         totalItems = totalItems + item.quantity
     ENDFOR
+    
     IF totalItems == 0 THEN
+    
         RETURN 0
     ELSE
+    
         RETURN totalPrice / totalItems
     ENDIF
+    
 END Function
 
-9. Function FilterProducts(maxPrice)
+12. Function FilterProducts(maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price <= maxPrice THEN
@@ -79,7 +99,7 @@ END Function
     RETURN filteredProducts
 END Function
  
-10. Function FilterProductsByRange(minPrice, maxPrice)
+13. Function FilterProductsByRange(minPrice, maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price >= minPrice AND item.price <= maxPrice THEN
@@ -89,7 +109,7 @@ END Function
     RETURN filteredProducts
 END Function
 
-11. Function SortCart(order)
+14. Function SortCart(order)
     IF order == "asc" THEN
         Sort cart by price in ascending order
     ELSE IF order == "desc" THEN
@@ -98,13 +118,13 @@ END Function
     RETURN cart
 END Function
 
-12. Function ClearCart()
+15. Function ClearCart()
     cart = []
     Display "Your cart is empty"
     RETURN cart
 END Function
 
-13. json 
+16. json 
   [
   {
     "id": 1,
