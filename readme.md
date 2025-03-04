@@ -8,6 +8,9 @@ Product {
     price: Float,
     quantity: Integer
 }
+
+
+
  2.  Shopping Cart Operations 
 Function AddToCart(product)
     IF cart contains product.id THEN
@@ -22,6 +25,8 @@ Function AddToCart(product)
     RETURN cart
 END Function 
 
+
+ 
 3. Function RemoveFromCart(productId)
     FOR each item in cart
         IF item.id == productId THEN
@@ -62,7 +67,7 @@ END Function
     ENDFOR
     RETURN filteredProducts
 END Function
-
+ 
 7. Function FilterProductsByRange(minPrice, maxPrice)
     filteredProducts = []
     FOR each item in cart
