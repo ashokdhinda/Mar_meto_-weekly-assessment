@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const productsContainer = document.querySelector(".products");
   const cartBody = document.querySelector(".cart-body");
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productEl.innerHTML = `
         <img src="${product.image}" alt="${product.title}" />
         <h3>${product.title}</h3>
-        <p class="desc">${product.description.substring(0, 50)}...</p>
+         <p class="desc">${product.description.substring(0, 50)}...</p>
         <p class="price">Price: $${product.price.toFixed(2)}</p>
         <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
       `;
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="increase" data-id="${item.id}">+</button>
         </div>
       </div>
+      <button  class="delete-item" data-id="${item.id}"> 🗑️</button>
     `;
     cartBody.appendChild(cartItem);
     addCartItemEventListeners(cartItem);
@@ -128,6 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const productId = parseInt(e.target.dataset.id);
       decreaseQuantity(productId);
     });
+
+    cartItem.querySelector(".delete-item").addEventListener("click", (e) => {
+      const productId = parseInt(e.target.dataset.id);
+      deleteCartItem(productId);
+    });
   }
 
   function increaseQuantity(productId) {
@@ -143,14 +150,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cart.has(productId)) {
       const cartItem = cart.get(productId);
       if (cartItem.quantity > 1) {
-          cartItem.quantity -= 1;
-            updateCartItemUI(productId, cartItem.quantity);
+        cartItem.quantity -= 1;
+        updateCartItemUI(productId, cartItem.quantity);
       } else {
-        cart.delete(productId);
-        removeCartItemUI(productId);
+        deleteCartItem(productId);
       }
       updateCartSummary();
-     
+    }
+  }
+
+  function deleteCartItem(productId) {
+    if (cart.has(productId)) {
+      cart.delete(productId);
+      removeCartItemUI(productId);
+      updateCartSummary();
     }
   }
 
@@ -184,8 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       notification.classList.remove("show");
     }, 2000);
-    }
-    console.log(document.querySelector(".cart-qty"));
+  }
 
   // 🛒 Filter by price
   applyFilterBtn.addEventListener("click", () => {
@@ -205,8 +217,10 @@ document.addEventListener("DOMContentLoaded", () => {
   cartSortSelect.addEventListener("change", () => {
     const sortBy = cartSortSelect.value;
     const sortedCart = [...cart.values()].sort((a, b) =>
-      sortBy === "low-high" ? a.price * a.quantity - b.price * b.quantity
-        : b.price * b.quantity - a.price * a.quantity )
+      sortBy === "low-high"
+        ? a.price * a.quantity - b.price * b.quantity
+        : b.price * b.quantity - a.price * a.quantity
+    );
 
     cartBody.innerHTML = "";
     sortedCart.forEach((item) => appendCartItem(item));
