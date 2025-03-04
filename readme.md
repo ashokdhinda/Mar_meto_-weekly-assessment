@@ -1,10 +1,7 @@
-  1.  Data Structure
+  ##1   Data Structure
 
-  2.  
-  Cart: An array of objects containing product details.
-
+  2. Cart: An array of objects containing product details.
   Product Object Structure:
-
 
  Product {
     id: Integer,
@@ -16,23 +13,32 @@
 
 
 
- 4.  Shopping Cart Operations 
+ 4.  Shopping Cart Operations
+  
 Function AddToCart(product)
+
     IF cart contains product.id THEN
+    
         Increment product.quantity in cart
+        
     ELSE
         IF Cart size < 100 THEN
+        
             Add product to cart with quantity = 1
         ELSE
+        
             Display "Cart is full, cannot add more products."
         ENDIF
+        
     ENDIF
+    
     RETURN cart
+    
 END Function 
 
 
  
-5. Function RemoveFromCart(productId)
+6. Function RemoveFromCart(productId)
     FOR each item in cart
         IF item.id == productId THEN
             Remove item from cart
@@ -42,7 +48,7 @@ END Function
     RETURN cart
 END Function
  
- 6. Function CalculateTotalPrice()
+ 7. Function CalculateTotalPrice()
     totalPrice = 0
     FOR each item in cart
         totalPrice = totalPrice + (item.price * item.quantity)
@@ -50,7 +56,7 @@ END Function
     RETURN totalPrice
 END Function
 
-7. Function CalculateAveragePrice()
+8. Function CalculateAveragePrice()
     totalPrice = CalculateTotalPrice()
     totalItems = 0
     FOR each item in cart
@@ -63,7 +69,7 @@ END Function
     ENDIF
 END Function
 
-8. Function FilterProducts(maxPrice)
+9. Function FilterProducts(maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price <= maxPrice THEN
@@ -73,7 +79,7 @@ END Function
     RETURN filteredProducts
 END Function
  
-9. Function FilterProductsByRange(minPrice, maxPrice)
+10. Function FilterProductsByRange(minPrice, maxPrice)
     filteredProducts = []
     FOR each item in cart
         IF item.price >= minPrice AND item.price <= maxPrice THEN
@@ -83,7 +89,7 @@ END Function
     RETURN filteredProducts
 END Function
 
-10. Function SortCart(order)
+11. Function SortCart(order)
     IF order == "asc" THEN
         Sort cart by price in ascending order
     ELSE IF order == "desc" THEN
@@ -92,13 +98,13 @@ END Function
     RETURN cart
 END Function
 
-11. Function ClearCart()
+12. Function ClearCart()
     cart = []
     Display "Your cart is empty"
     RETURN cart
 END Function
 
-12. json 
+13. json 
   [
   {
     "id": 1,
